@@ -23,7 +23,7 @@ CREATE TABLE user_profiles(
     phone TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP 
-)
+);
 
 CREATE TABLE projects(
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -33,7 +33,7 @@ CREATE TABLE projects(
     owner_id UUID NOT NULL REFERENCES users ON DELETE RESTRICT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
-)
+);
 
 -- one to many withg projects
 CREATE TABLE tasks(
@@ -57,7 +57,7 @@ CREATE TABLE project_members(
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(project_id, user_id)
-)
+);
 
 -- migrate:down
 
