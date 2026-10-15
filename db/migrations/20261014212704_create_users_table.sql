@@ -6,7 +6,6 @@ CREATE TYPE task_status AS ENUM ('pending', 'in_progress', 'completed', 'cancell
 CREATE TYPE member_role AS ENUM ('owner', 'admin', 'member');
 
 -- Create users table
-
 CREATE TABLE users(
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     email TEXT NOT NULL UNIQUE,
@@ -20,6 +19,7 @@ CREATE TABLE users(
 CREATE TABLE user_profiles(
     user_id UUID PRIMARY KEY REFERENCES users ON DELETE CASCADE,
     avatar_url TEXT,
+    bio TEXT,
     phone TEXT,
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP 
