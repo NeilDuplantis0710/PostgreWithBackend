@@ -61,3 +61,15 @@ CREATE TABLE project_members(
 
 -- migrate:down
 
+--Drop all the tables
+DROP TABLE IF EXISTS project_members;
+DROP TABLE IF EXISTS tasks;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS user_profiles;
+DROP TABLE IF EXISTS users;
+
+
+-- Drop all the enums
+DROP TYPE IF EXISTS member_role;
+DROP TYPE IF EXISTS task_status;
+DROP TYPE IF EXISTS project_status;
